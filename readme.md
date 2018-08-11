@@ -1,6 +1,7 @@
 华为软件精英挑战赛
 一．决策树设计
 1.树节点设计
+```cpp
 class treenode {
 public:
 	treenode() : col(-1), value(0), left(nullptr), right(nullptr) {}
@@ -13,7 +14,7 @@ public:
 	treenode* right;
 	vector<double> result; //只对叶节点存放输出值
 };
-
+```cpp
 说明：
 节点的初始化，col代表特征对应的维度，value作为该特征的切分点，向量result存放叶节点的输出值集合，对于非叶节点，向量result设为空。
 
