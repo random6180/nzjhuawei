@@ -1,5 +1,7 @@
 华为软件精英挑战赛
+====
 一．决策树设计
+---
 1.树节点设计
 ```cpp
 class treenode {
@@ -14,7 +16,7 @@ public:
 	treenode* right;
 	vector<double> result; //只对叶节点存放输出值
 };
-```cpp
+```
 说明：
 节点的初始化，col代表特征对应的维度，value作为该特征的切分点，向量result存放叶节点的输出值集合，对于非叶节点，向量result设为空。
 
@@ -176,6 +178,7 @@ void drawTree(treenode& node, string space = " ") {
 
 
 二．由决策树生成梯度提升树（gbdt）
+---
 1.生成提升树
 vector<treenode*> gbdt(vector<vector<float> >& inputvector, int iter, float rate=1) {
 	vector<treenode*> nodevector;
@@ -246,6 +249,7 @@ float gbdtPreOutput(vector<treenode*> nodevector, vector<float>& input) {
 
 
 三．由决策树生成随机森林（rf）
+---
 vector<treenode*> randomForest(vector<vector<float> >& inputvector, int iter, float feature=0.6) {
 	vector<treenode*> nodevector;
 	treenode* node = new treenode;		//node为数组
@@ -288,6 +292,7 @@ vector<treenode*> randomForest(vector<vector<float> >& inputvector, int iter, fl
 
 
 四．局部加权线性回归
+---
 double lwlr(vector<double>& testPoint, vector<vector<double> >& xArr,
 	vector<vector<double> >& yArr, double k = 1.0) {
 	double result;
@@ -339,6 +344,7 @@ testPoint为输入向量，其第一列也填充1，k为衰减系数。
 
 
 五．局部加权非线性回归
+---
 1.得到系数theta
 vector<double> generatetheta(vector<double>& xArr, vector<double>& yArr, double xp, int order = 10, int kp = 5) {//x为预测点
 	vector<double> rowx;
@@ -422,6 +428,7 @@ double preOutput(vector<double>& theta, double days) {
 计算，变量k控制指数相乘次数，i控制系数个数。
 
 六．虚拟机分配部分
+---
 1.贪心算法选出合适的虚拟机
 int selectFlavor(vector<Flavor>& flavorlist, Server& server, int last, int first) {    //选出合适的k
 	int minmum = 50000;
